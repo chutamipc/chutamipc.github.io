@@ -12,14 +12,20 @@ Sitio: https://chutamipc.github.io
 
 ## Cambios frecuentes
 
-Todo se edita en `index.html`:
+Todo se edita en `index.html`.
 
-| Qué | Dónde |
+**WhatsApp y redes sociales:** al final del archivo hay un bloque marcado `CAMBIAR AQUI`. Es el único lugar que hay que tocar:
+
+| Línea | Qué poner |
 |---|---|
-| Número de WhatsApp | Al final del archivo, en la línea `var WHATSAPP = "WHATSAPP_NUMERO";`. Va en formato internacional sin `+` (ejemplo: `593991234567`). Es el único lugar que hay que tocar. |
-| Enlace de Facebook | Justo debajo, en `var FACEBOOK = "";`. Mientras esté vacío, el pie muestra el nombre de la página sin enlace. |
-| Precios y textos | Busca el nombre del paquete (por ejemplo `Chuta Express`) y edita su tarjeta. |
-| Mensaje que se abre en WhatsApp | El atributo `data-wa` de cada botón. |
+| `var WHATSAPP = "WHATSAPP_NUMERO";` | El número en formato internacional sin `+` (ejemplo: `593991234567`). Mientras no esté, los botones de WhatsApp llevan a la sección de contacto. |
+| `var INSTAGRAM = "...";` | El enlace del perfil, o solo el usuario (`@usuario`). |
+| `var TIKTOK = "...";` | Igual que Instagram. |
+| `var FACEBOOK = "";` | El enlace de la página. Mientras esté vacío, Facebook no aparece en el pie. |
+
+**Precios y textos:** busca el nombre del paquete (por ejemplo `Chuta Express`) y edita su tarjeta.
+
+**Mensaje que se abre en WhatsApp:** es el atributo `data-wa` de cada botón.
 
 ## Imágenes
 

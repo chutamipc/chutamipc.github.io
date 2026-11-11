@@ -4,9 +4,12 @@
 <!--
   Chuta, Mi PC! - pagina de una sola hoja: HTML + CSS + JS en este archivo, sin frameworks ni build.
 
-  PARA PONER EL NUMERO DE WHATSAPP: ve al final del archivo, a la linea que empieza con
-  "var WHATSAPP =", y reemplaza el texto entre comillas por el numero en formato
-  internacional sin "+" (ejemplo: 593991234567). Es el unico lugar que hay que tocar.
+  ==========================================================================
+  PARA CAMBIAR EL NUMERO DE WHATSAPP Y LAS REDES SOCIALES
+  Ve al final de este archivo y busca el bloque que dice "CAMBIAR AQUI".
+  Ahi estan el numero de WhatsApp y los enlaces de Instagram, TikTok y
+  Facebook. Es el unico lugar que hay que tocar.
+  ==========================================================================
 
   Iconos: Lucide (licencia ISC) y Simple Icons (CC0).
 -->
@@ -44,7 +47,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-<script type="application/ld+json">
+<script type="application/ld+json" id="datos-negocio">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -57,8 +60,7 @@
   "email": "chutamipc.ec@gmail.com",
   "priceRange": "$",
   "areaServed": { "@type": "City", "name": "Cuenca" },
-  "address": { "@type": "PostalAddress", "addressLocality": "Cuenca", "addressRegion": "Azuay", "addressCountry": "EC" },
-  "sameAs": ["https://www.instagram.com/chutamipc.ec/", "https://www.tiktok.com/@chutamipc.ec"]
+  "address": { "@type": "PostalAddress", "addressLocality": "Cuenca", "addressRegion": "Azuay", "addressCountry": "EC" }
 }
 </script>
 
@@ -98,6 +100,7 @@ a { color: inherit; }
 s { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--marino); outline-offset: 3px; border-radius: 8px; }
 .oscuro :focus-visible { outline-color: #fff; }
+[hidden] { display: none !important; }
 
 .contenedor { width: min(100% - 2.5rem, 1120px); margin-inline: auto; }
 .solo-lector {
@@ -1043,18 +1046,21 @@ s { text-decoration-thickness: 2px; }
       </div>
       <div>
         <h3>Contacto</h3>
+        <!-- El numero de WhatsApp se cambia al final del archivo, en el bloque "CAMBIAR AQUI". -->
         <ul class="pie__lista">
           <li><a href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>WhatsApp</a></li>
           <li><a href="mailto:chutamipc.ec@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-correo"></use></svg>chutamipc.ec@gmail.com</a></li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-pin"></use></svg>Cuenca, Ecuador</li>
         </ul>
       </div>
-      <div>
+      <div id="pie-redes">
         <h3>Redes</h3>
+        <!-- Los enlaces de las redes se cambian al final del archivo, en el bloque "CAMBIAR AQUI".
+             Una red que no tiene enlace no se muestra. -->
         <ul class="pie__lista">
-          <li><a href="https://www.instagram.com/chutamipc.ec/" target="_blank" rel="noopener"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-instagram"></use></svg><span><span class="solo-lector">Instagram: </span>@chutamipc.ec</span></a></li>
-          <li><a href="https://www.tiktok.com/@chutamipc.ec" target="_blank" rel="noopener"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-tiktok"></use></svg><span><span class="solo-lector">TikTok: </span>@chutamipc.ec</span></a></li>
-          <li><a id="red-facebook"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-facebook"></use></svg><span><span class="solo-lector">Facebook: </span>Chuta Mi PC</span></a></li>
+          <li><a id="red-instagram"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-instagram"></use></svg>Instagram</a></li>
+          <li><a id="red-tiktok"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-tiktok"></use></svg>TikTok</a></li>
+          <li><a id="red-facebook"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-facebook"></use></svg>Facebook</a></li>
         </ul>
       </div>
     </div>
@@ -1074,37 +1080,82 @@ s { text-decoration-thickness: 2px; }
 (function () {
   "use strict";
 
-  /* ============ CONFIGURACION ============
-     Numero de WhatsApp Business en formato internacional, sin "+", espacios ni guiones.
-     Ejemplo: "593991234567". Reemplaza solo el texto entre comillas. */
+  /* ==========================================================================
+     CAMBIAR AQUI: NUMERO DE WHATSAPP Y REDES SOCIALES
+     Es lo unico que hay que editar en toda la pagina.
+     Cambia solo lo que esta entre comillas. No borres las comillas ni el punto
+     y coma del final de cada linea.
+     ========================================================================== */
+
+  /* 1) WHATSAPP
+     Escribe el numero de WhatsApp Business en formato internacional:
+     sin "+", sin espacios y sin guiones. Ejemplo para Ecuador: "593991234567".
+     Mientras diga WHATSAPP_NUMERO, los botones de WhatsApp no abren WhatsApp:
+     llevan a la seccion de contacto de la pagina (correo y redes). */
   var WHATSAPP = "WHATSAPP_NUMERO";
 
-  /* Enlace de la pagina de Facebook (ejemplo: "https://www.facebook.com/tu-pagina").
-     Mientras este vacio, en el pie aparece el nombre de la pagina sin enlace. */
+  /* 2) REDES SOCIALES
+     Pega el enlace de cada perfil (ejemplo: "https://www.instagram.com/usuario/").
+     Tambien sirve escribir solo el usuario (ejemplo: "@usuario").
+     Si dejas una vacia (""), esa red no aparece en el pie de la pagina. */
+  var INSTAGRAM = "https://www.instagram.com/chutamipc.ec/";
+  var TIKTOK = "https://www.tiktok.com/@chutamipc.ec";
   var FACEBOOK = "";
-  /* ======================================= */
 
-  /* Botones de WhatsApp: cada uno lleva su mensaje en el atributo data-wa */
-  var soloDigitos = WHATSAPP.replace(/\D/g, "");
-  var numero = soloDigitos || WHATSAPP;
-  if (!soloDigitos && window.console) {
-    console.warn("Chuta: falta configurar el numero de WhatsApp (variable WHATSAPP en index.html).");
-  }
-  var botones = document.querySelectorAll("[data-wa]");
-  for (var i = 0; i < botones.length; i++) {
-    var mensaje = botones[i].getAttribute("data-wa");
-    botones[i].href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
-    botones[i].target = "_blank";
-    botones[i].rel = "noopener";
+  /* ==================== FIN DE LO QUE HAY QUE CAMBIAR ====================== */
+
+
+  /* Botones de WhatsApp: cada uno lleva su mensaje en el atributo data-wa.
+     Sin numero configurado se quedan apuntando a la seccion de contacto. */
+  var numero = WHATSAPP.replace(/\D/g, "");
+  if (/^09\d{8}$/.test(numero)) { numero = "593" + numero.slice(1); } /* celular de Ecuador escrito como 09XXXXXXXX */
+  if (numero) {
+    var botones = document.querySelectorAll("[data-wa]");
+    for (var i = 0; i < botones.length; i++) {
+      botones[i].href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(botones[i].getAttribute("data-wa"));
+      botones[i].target = "_blank";
+      botones[i].rel = "noopener";
+    }
+  } else if (window.console) {
+    console.warn("Chuta: falta el numero de WhatsApp (bloque CAMBIAR AQUI, al final de index.html).");
   }
 
-  /* Facebook */
-  var facebook = document.getElementById("red-facebook");
-  if (facebook && FACEBOOK) {
-    facebook.href = FACEBOOK;
-    facebook.target = "_blank";
-    facebook.rel = "noopener";
+  /* Redes sociales del pie: se enlazan las que tienen direccion y se ocultan las vacias */
+  function enlaceRed(valor, base) {
+    valor = valor.replace(/\s/g, "");
+    if (!valor) { return ""; }
+    if (/^https?:\/\//i.test(valor)) { return valor; }
+    if (valor.indexOf("/") !== -1 || /^www\./i.test(valor)) { return "https://" + valor; }
+    return base + valor.replace(/^@/, "");
   }
+  var redes = [
+    ["red-instagram", enlaceRed(INSTAGRAM, "https://www.instagram.com/")],
+    ["red-tiktok", enlaceRed(TIKTOK, "https://www.tiktok.com/@")],
+    ["red-facebook", enlaceRed(FACEBOOK, "https://www.facebook.com/")]
+  ];
+  var perfiles = [];
+  for (var r = 0; r < redes.length; r++) {
+    var enlace = document.getElementById(redes[r][0]);
+    if (redes[r][1]) {
+      enlace.href = redes[r][1];
+      enlace.target = "_blank";
+      enlace.rel = "noopener";
+      perfiles.push(redes[r][1]);
+    } else {
+      enlace.parentNode.hidden = true;
+    }
+  }
+  if (!perfiles.length) { document.getElementById("pie-redes").hidden = true; }
+
+  /* Datos para buscadores: se agregan los perfiles configurados */
+  try {
+    var datos = document.getElementById("datos-negocio");
+    var negocio = JSON.parse(datos.textContent);
+    if (perfiles.length) {
+      negocio.sameAs = perfiles;
+      datos.textContent = JSON.stringify(negocio);
+    }
+  } catch (error) { /* no afecta a la pagina */ }
 
   /* Menu en celular */
   var menuBtn = document.getElementById("menu-btn");
