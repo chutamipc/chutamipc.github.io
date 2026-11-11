@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<!--
+  Chuta, Mi PC! - pagina de una sola hoja: HTML + CSS + JS en este archivo, sin frameworks ni build.
+
+  PARA PONER EL NUMERO DE WHATSAPP: ve al final del archivo, a la linea que empieza con
+  "var WHATSAPP =", y reemplaza el texto entre comillas por el numero en formato
+  internacional sin "+" (ejemplo: 593991234567). Es el unico lugar que hay que tocar.
+
+  Iconos: Lucide (licencia ISC) y Simple Icons (CC0).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chuta, Mi PC! | Soporte técnico de PCs y laptops en Cuenca</title>
+<meta name="description" content="Tu PC no está vieja, está descuidada. Soporte técnico de PCs y laptops en Cuenca, Ecuador: diagnóstico gratis, optimización, formateo y rescate. Paquetes desde $3.">
+<link rel="canonical" href="https://chutamipc.github.io/">
+<meta name="theme-color" content="#1769F8">
+<meta name="color-scheme" content="light">
+
+<!-- Como se ve el enlace al compartirlo (WhatsApp, Facebook, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta property="og:site_name" content="Chuta, Mi PC!">
+<meta property="og:url" content="https://chutamipc.github.io/">
+<meta property="og:title" content="Chuta, Mi PC! | De lenta a volando">
+<meta property="og:description" content="Tu PC no está vieja, está descuidada. Soporte técnico de PCs y laptops en Cuenca: diagnóstico gratis y paquetes desde $3.">
+<meta property="og:image" content="https://chutamipc.github.io/img/Chuta_OG_1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo de Chuta, Mi PC!: una laptop caricatura sonriente con una llave inglesa. De lenta a volando.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chuta, Mi PC! | De lenta a volando">
+<meta name="twitter:description" content="Tu PC no está vieja, está descuidada. Soporte técnico de PCs y laptops en Cuenca: diagnóstico gratis y paquetes desde $3.">
+<meta name="twitter:image" content="https://chutamipc.github.io/img/Chuta_OG_1200x630.jpg">
+
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Chuta, Mi PC!",
+  "slogan": "De lenta a volando",
+  "description": "Soporte técnico de PCs y laptops en Cuenca, Ecuador. Diagnóstico gratis, optimización, formateo y rescate, por soporte remoto o dejando el equipo.",
+  "url": "https://chutamipc.github.io/",
+  "image": "https://chutamipc.github.io/img/Chuta_OG_1200x630.jpg",
+  "logo": "https://chutamipc.github.io/img/Chuta_Logo_1080.png",
+  "email": "chutamipc.ec@gmail.com",
+  "priceRange": "$",
+  "areaServed": { "@type": "City", "name": "Cuenca" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Cuenca", "addressRegion": "Azuay", "addressCountry": "EC" },
+  "sameAs": ["https://www.instagram.com/chutamipc.ec/", "https://www.tiktok.com/@chutamipc.ec"]
+}
+</script>
+
+<style>
+/* ============ Base ============ */
+:root {
+  --azul: #2F6BFF;          /* azul electrico de la marca */
+  --azul-texto: #1F55E0;    /* el mismo azul, mas oscuro, para letra pequena */
+  --azul-logo: #1769F8;     /* fondo exacto de las imagenes del logo y la mascota, para que se fundan con la pagina */
+  --naranja: #FF8A00;
+  --naranja-osc: #F07C00;
+  --marino: #0E1A33;
+  --tinta-suave: #46536E;
+  --linea: #DCE4F5;
+  --fondo: #F4F7FF;
+  --sombra: 0 10px 30px rgba(14, 26, 51, .07);
+  --f-titulo: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --f-texto: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  font-family: var(--f-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--marino);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+s { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--marino); outline-offset: 3px; border-radius: 8px; }
+.oscuro :focus-visible { outline-color: #fff; }
+
+.contenedor { width: min(100% - 2.5rem, 1120px); margin-inline: auto; }
+.solo-lector {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.saltar {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: #fff; color: var(--marino); padding: .75rem 1rem; border-radius: 0 0 12px 0; font-weight: 600;
+}
+.saltar:focus { left: 0; }
+
+/* Iconos (vienen del bloque <svg> al inicio del body) */
+.ico {
+  width: 1.25em; height: 1.25em; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.ico--marca { fill: currentColor; stroke: none; }
+
+/* ============ Botones ============ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 54px; padding: .8rem 1.6rem;
+  border: 2px solid transparent; border-radius: 999px;
+  font: 600 1rem/1.2 var(--f-texto); text-align: center; text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
+}
+.btn .ico { width: 1.3em; height: 1.3em; }
+.btn--principal { background: var(--naranja); color: var(--marino); box-shadow: 0 8px 20px rgba(255, 138, 0, .32); }
+.btn--principal:hover { background: #FF9A1F; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(255, 138, 0, .4); }
+.btn--principal:active { transform: translateY(0); background: var(--naranja-osc); }
+.btn--borde-blanco { border-color: rgba(255, 255, 255, .85); color: #fff; }
+.btn--borde-blanco:hover { background: #fff; color: var(--marino); }
+.btn--chico { min-height: 44px; padding: .5rem 1.15rem; font-size: .92rem; box-shadow: none; }
+.btn--bloque { width: 100%; }
+
+/* ============ Cabecera ============ */
+.cabecera {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, .95);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px); backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--linea);
+}
+.cabecera__fila { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; }
+.marca { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--marino); }
+.marca img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--marino); background: var(--azul-logo); }
+.marca__nombre { font: 800 1.4rem/1 var(--f-titulo); letter-spacing: -.01em; padding-top: .12em; white-space: nowrap; }
+.nav { display: none; }
+.menu-btn {
+  display: inline-grid; place-items: center; width: 46px; height: 46px;
+  border: 1px solid var(--linea); border-radius: 12px; background: #fff; color: var(--marino); cursor: pointer;
+}
+.menu-btn .ico { width: 24px; height: 24px; }
+.menu-btn .ico-cerrar, .menu-btn[aria-expanded="true"] .ico-abrir { display: none; }
+.menu-btn[aria-expanded="true"] .ico-cerrar { display: block; }
+.menu-movil {
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: #fff; border-bottom: 1px solid var(--linea); box-shadow: 0 24px 30px rgba(14, 26, 51, .12);
+  padding: .25rem 1.25rem 1.25rem;
+}
+.menu-movil[hidden] { display: none; }
+.menu-movil a:not(.btn) { display: block; padding: .95rem .25rem; font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--linea); }
+.menu-movil .btn { margin-top: 1.1rem; }
+@media (min-width: 900px) {
+  .nav { display: flex; align-items: center; gap: 1.75rem; }
+  .nav a:not(.btn) { font-size: .95rem; font-weight: 500; text-decoration: none; }
+  .nav a:not(.btn):hover { color: var(--azul-texto); }
+  .menu-btn, .menu-movil { display: none !important; }
+}
+
+/* ============ Inicio ============ */
+.hero { position: relative; overflow: hidden; background: var(--azul-logo); color: #fff; padding: .75rem 0 4.75rem; }
+.hero__grid { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
+.hero__logo { display: block; width: min(62vw, 300px); }
+.hero__logo img { width: 100%; }
+.hero__lugar {
+  display: inline-block; margin-top: .25rem; padding: .4rem .9rem; border-radius: 999px;
+  background: rgba(14, 26, 51, .28); font-size: .82rem; font-weight: 500; letter-spacing: .01em;
+}
+.hero h1 { margin-top: .9rem; font: 800 clamp(1.85rem, 8.6vw, 3.9rem)/1.06 var(--f-titulo); letter-spacing: -.01em; }
+.hero h1 span { display: block; }
+.hero h1 .resalte {
+  display: inline-block; margin-top: .14em; padding: .1em .34em .02em;
+  background: var(--marino); color: var(--naranja);
+  border: 3px solid #fff; border-radius: .3em; transform: rotate(-1.5deg);
+}
+.hero__texto p.hero__bajada { margin: 1.1rem auto 0; max-width: 34rem; font-size: 1.02rem; color: rgba(255, 255, 255, .95); text-wrap: pretty; }
+.hero__botones { display: grid; gap: .75rem; margin-top: 1.5rem; width: 100%; }
+.hero__sellos { display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem 1.2rem; margin-top: 1.5rem; font-size: .9rem; font-weight: 500; }
+.hero__sellos li { display: inline-flex; align-items: center; gap: .45rem; }
+.hero__sellos .ico { width: 20px; height: 20px; padding: 3px; border-radius: 50%; background: #fff; color: var(--azul-logo); stroke-width: 3.5; }
+.hero__curva { position: absolute; left: 0; bottom: -1px; width: 100%; height: 44px; fill: var(--fondo); }
+.chispa { position: absolute; display: none; aspect-ratio: 1; fill: currentColor; }
+@media (min-width: 560px) {
+  .hero__botones { display: flex; flex-wrap: wrap; justify-content: center; width: auto; }
+}
+@media (min-width: 900px) {
+  .hero { padding: 2.5rem 0 7rem; }
+  .hero__grid { grid-template-columns: 1.08fr .92fr; align-items: center; justify-items: start; gap: 2rem; text-align: left; }
+  .hero__logo { order: 2; justify-self: center; width: min(100%, 480px); }
+  .hero__texto p.hero__bajada { margin-left: 0; font-size: 1.12rem; }
+  .hero__botones, .hero__sellos { justify-content: flex-start; }
+  .hero__curva { height: 80px; }
+}
+@media (min-width: 1300px) {
+  .chispa { display: block; }
+  .chispa--1 { top: 15%; left: 4%; width: 22px; color: #fff; }
+  .chispa--2 { bottom: 32%; left: 2.2%; width: 30px; color: var(--naranja); }
+  .chispa--3 { top: 24%; right: 3%; width: 18px; color: #fff; }
+}
+
+/* ============ Secciones ============ */
+.seccion { padding: 4rem 0; }
+.seccion--suave { background: var(--fondo); }
+.seccion--marino { background: var(--marino); color: #fff; }
+.encabezado { max-width: 720px; margin: 0 auto 2.25rem; text-align: center; }
+.etiqueta { display: block; margin-bottom: .6rem; font: 600 .8rem/1.2 var(--f-texto); letter-spacing: .14em; text-transform: uppercase; color: var(--azul-texto); }
+.seccion--marino .etiqueta { color: var(--naranja); }
+.encabezado h2 { font: 800 clamp(2rem, 6vw, 2.9rem)/1.08 var(--f-titulo); letter-spacing: -.01em; text-wrap: balance; }
+.encabezado p { margin-top: .75rem; font-size: 1.05rem; color: var(--tinta-suave); text-wrap: pretty; }
+.seccion--marino .encabezado p { color: #C7D2EA; }
+@media (min-width: 900px) {
+  .seccion { padding: 6rem 0; }
+  .encabezado { margin-bottom: 3rem; }
+}
+
+/* ============ Paquetes ============ */
+.lanzamiento {
+  display: flex; align-items: flex-start; gap: .7rem; max-width: 720px; margin: 0 auto 1.75rem;
+  padding: .85rem 1.1rem; border: 1.5px solid #FFC56B; border-radius: 16px; background: #FFF4E2; font-size: .95rem;
+}
+.lanzamiento .ico { width: 22px; height: 22px; margin-top: .1rem; color: #B85F00; }
+.sintomas { margin-bottom: 2rem; text-align: center; }
+.sintomas__titulo { margin-bottom: .8rem; font: 700 1.3rem/1.2 var(--f-titulo); }
+.sintomas ul { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.sintomas a {
+  display: inline-flex; align-items: center; min-height: 42px; padding: .4rem 1rem;
+  border: 1.5px solid var(--linea); border-radius: 999px; background: #fff;
+  font-size: .9rem; font-weight: 500; text-decoration: none;
+  transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+.sintomas a:hover { border-color: var(--azul); color: var(--azul-texto); background: #EEF3FF; }
+
+.diag {
+  display: grid; gap: 1.5rem; margin-bottom: 1.25rem; padding: 1.75rem 1.5rem;
+  border-radius: 24px; background: var(--marino); color: #fff; box-shadow: var(--sombra);
+}
+.diag__sello {
+  display: inline-block; padding: .35rem .7rem; border-radius: 8px; background: var(--naranja); color: var(--marino);
+  font: 600 .72rem/1 var(--f-texto); letter-spacing: .08em; text-transform: uppercase;
+}
+.diag h3 { margin-top: .8rem; font: 800 1.9rem/1.1 var(--f-titulo); }
+.diag__texto > p { margin-top: .5rem; color: #D5DEF2; }
+.diag__revisa { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.diag__revisa li { padding: .3rem .75rem; border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px; font-size: .84rem; font-weight: 500; }
+.diag__meta { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: 1rem; font-size: .9rem; color: #D5DEF2; }
+.diag__meta li { display: inline-flex; align-items: center; gap: .4rem; }
+.diag__meta .ico { color: var(--naranja); }
+.diag__accion { display: grid; gap: .9rem; align-content: center; }
+.diag__gratis { font: 800 3.4rem/1 var(--f-titulo); color: var(--naranja); }
+@media (min-width: 860px) {
+  .diag { grid-template-columns: 1fr auto; align-items: center; gap: 2.5rem; padding: 2.25rem 2.5rem; }
+  .diag__accion { justify-items: center; text-align: center; min-width: 270px; }
+  .diag__gratis { font-size: 4rem; }
+}
+
+.paquetes { display: grid; gap: 1.25rem; }
+.paquete {
+  position: relative; display: flex; flex-direction: column; gap: 1.1rem;
+  padding: 1.6rem 1.4rem 1.4rem; border: 1px solid var(--linea); border-radius: 24px; background: #fff; box-shadow: var(--sombra);
+}
+.paquete--destacado { border: 2px solid var(--azul); box-shadow: 0 18px 44px rgba(47, 107, 255, .2); }
+.paquete__cinta {
+  position: absolute; top: -14px; right: 20px; padding: .4rem .85rem; border-radius: 999px;
+  background: var(--azul-texto); color: #fff; font: 600 .74rem/1 var(--f-texto); letter-spacing: .08em; text-transform: uppercase;
+}
+.paquete__cab { display: flex; align-items: center; gap: .9rem; }
+.paquete__icono { display: grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 16px; background: #E9F0FF; color: var(--azul-texto); }
+.paquete__icono .ico { width: 26px; height: 26px; }
+.paquete__tipo { font-size: .76rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--azul-texto); }
+.paquete h3 { font: 800 1.65rem/1.1 var(--f-titulo); letter-spacing: -.01em; }
+.precio { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem .9rem; padding: .9rem 0; border-block: 1px dashed var(--linea); }
+.precio__valor { font: 800 3.1rem/.9 var(--f-titulo); letter-spacing: -.02em; padding-top: .12em; }
+.precio__valor small { display: block; margin-bottom: .4rem; font: 600 .78rem/1 var(--f-texto); letter-spacing: .06em; text-transform: uppercase; color: var(--tinta-suave); }
+.precio__lado { display: grid; gap: .35rem; justify-items: start; font-size: .9rem; color: var(--tinta-suave); }
+.precio__sello {
+  padding: .32rem .55rem; border-radius: 7px; background: var(--naranja); color: var(--marino);
+  font: 600 .68rem/1 var(--f-texto); letter-spacing: .07em; text-transform: uppercase;
+}
+.paquete__desc { color: var(--tinta-suave); font-size: .97rem; }
+.paquete__meta { display: flex; flex-wrap: wrap; gap: .4rem; }
+.paquete__meta li {
+  display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: 999px;
+  background: #EEF3FF; font-size: .82rem; font-weight: 500;
+}
+.paquete__meta .ico { width: 15px; height: 15px; color: var(--azul-texto); }
+.lista { display: grid; gap: .55rem; font-size: .95rem; }
+.lista li { display: grid; grid-template-columns: 20px 1fr; gap: .6rem; }
+.lista .ico { width: 20px; height: 20px; margin-top: .14rem; color: var(--azul); stroke-width: 2.6; }
+.nota { padding: .6rem .8rem; border-left: 3px solid var(--naranja); border-radius: 0 10px 10px 0; background: #FFF4E2; font-size: .87rem; }
+.paquete > .btn { margin-top: auto; }
+.paquete:target, .diag:target { animation: destacar 2s ease-out 1; }
+@keyframes destacar {
+  0%, 55% { box-shadow: 0 0 0 4px var(--naranja), var(--sombra); }
+  100% { box-shadow: 0 0 0 4px rgba(255, 138, 0, 0), var(--sombra); }
+}
+@media (hover: hover) {
+  .paquete { transition: transform .2s ease, box-shadow .2s ease; }
+  .paquete:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(14, 26, 51, .12); }
+}
+@media (min-width: 700px) {
+  .paquetes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1040px) {
+  .paquetes { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .paquete--extras {
+    grid-column: span 2; display: grid; column-gap: 2.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-rows: auto auto 1fr auto;
+  }
+  .paquete--extras .paquete__cab { grid-area: 1 / 1; }
+  .paquete--extras .precio { grid-area: 2 / 1; }
+  .paquete--extras .paquete__desc { grid-area: 3 / 1; }
+  .paquete--extras > .btn { grid-area: 4 / 1; align-self: end; }
+  .paquete--extras .lista {
+    grid-area: 1 / 2 / 5 / 3; align-content: center; gap: .95rem;
+    padding: 1.5rem; border-radius: 18px; background: var(--fondo); font-size: 1rem;
+  }
+}
+
+/* ============ Como trabajamos ============ */
+.pasos { display: grid; max-width: 620px; margin-inline: auto; }
+.paso { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 1.1rem; padding-bottom: 1.9rem; }
+.paso:last-child { padding-bottom: 0; }
+.paso::before { content: ""; position: absolute; left: 25px; top: 56px; bottom: 4px; width: 2px; background: var(--linea); }
+.paso:last-child::before { display: none; }
+.paso__num {
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--azul); color: #fff; font: 800 1.5rem/1 var(--f-titulo); padding-top: .12em;
+}
+.paso:last-child .paso__num { background: var(--naranja); color: var(--marino); }
+.paso h3 { font: 700 1.35rem/1.2 var(--f-titulo); padding-top: .55rem; }
+.paso p { margin-top: .2rem; color: var(--tinta-suave); font-size: .97rem; }
+@media (min-width: 1000px) {
+  .pasos { grid-template-columns: repeat(5, 1fr); gap: 1.75rem; max-width: none; }
+  .paso { grid-template-columns: 1fr; align-content: start; gap: .5rem; padding-bottom: 0; }
+  .paso::before { left: 62px; right: calc(-1.75rem + 10px); top: 25px; bottom: auto; width: auto; height: 2px; }
+}
+
+/* ============ Por que Chuta ============ */
+.razones { display: grid; gap: 1rem; }
+.razon { padding: 1.5rem 1.4rem; border: 1px solid rgba(255, 255, 255, .12); border-radius: 22px; background: rgba(255, 255, 255, .05); }
+.razon__icono { display: grid; place-items: center; width: 50px; height: 50px; margin-bottom: 1rem; border-radius: 15px; background: var(--naranja); color: var(--marino); }
+.razon__icono .ico { width: 26px; height: 26px; }
+.razon h3 { font: 700 1.3rem/1.2 var(--f-titulo); }
+.razon p { margin-top: .4rem; font-size: .95rem; color: #C7D2EA; }
+.razon--no { border-style: dashed; border-color: rgba(255, 255, 255, .35); background: transparent; }
+.razon--no .razon__icono { background: transparent; border: 2px solid rgba(255, 255, 255, .55); color: #fff; }
+@media (min-width: 640px) { .razones { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .razones { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } }
+
+/* ============ Preguntas ============ */
+.faq { display: grid; gap: .75rem; max-width: 800px; margin-inline: auto; }
+.faq__item { border: 1px solid var(--linea); border-radius: 18px; background: #fff; }
+.faq__item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.1rem 1.25rem; font-weight: 600; cursor: pointer; list-style: none; border-radius: 18px;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary .ico { width: 22px; height: 22px; color: var(--azul-texto); transition: transform .2s ease; }
+.faq__item[open] summary .ico { transform: rotate(180deg); }
+.faq__resp { padding: 0 1.25rem 1.25rem; color: var(--tinta-suave); }
+.faq__mas { margin-top: 2rem; text-align: center; color: var(--tinta-suave); }
+.faq__mas a { color: var(--azul-texto); font-weight: 600; }
+
+/* ============ Cierre y pie ============ */
+.cierre { background: var(--azul-logo); color: #fff; padding: 2.5rem 0 4rem; }
+.cierre__grid { display: grid; justify-items: center; text-align: center; }
+.cierre__mascota { width: min(60vw, 250px); }
+.cierre h2 { font: 800 clamp(2rem, 6.4vw, 3rem)/1.08 var(--f-titulo); letter-spacing: -.01em; text-wrap: balance; }
+.cierre p { margin-top: .8rem; font-size: 1.05rem; color: rgba(255, 255, 255, .95); }
+.cierre .btn { margin-top: 1.5rem; }
+.cierre p.cierre__correo { margin-top: 1.1rem; font-size: .95rem; }
+.cierre__correo a { font-weight: 600; }
+@media (min-width: 860px) {
+  .cierre { padding: 3rem 0; }
+  .cierre__grid { grid-template-columns: 320px 1fr; align-items: center; justify-items: start; gap: 2.5rem; text-align: left; }
+  .cierre__mascota { width: 320px; }
+}
+
+.pie { background: var(--marino); color: #C7D2EA; padding: 3rem 0 6.5rem; font-size: .95rem; }
+.pie__grid { display: grid; gap: 2.25rem; }
+.pie .marca { color: #fff; }
+.pie .marca img { border-color: #fff; }
+.pie__lema { margin-top: .9rem; max-width: 22rem; }
+.pie__lema strong { display: block; color: #fff; font: 700 1.15rem/1.3 var(--f-titulo); }
+.pie h3 { margin-bottom: .9rem; font: 700 1.15rem/1.2 var(--f-titulo); color: #fff; }
+.pie__lista { display: grid; gap: .7rem; }
+.pie__lista li, .pie__lista a { display: inline-flex; align-items: center; gap: .65rem; }
+.pie__lista a { color: #fff; text-decoration: none; min-height: 28px; }
+.pie__lista a[href]:hover { text-decoration: underline; }
+.pie__lista .ico { width: 20px; height: 20px; color: var(--naranja); }
+.pie__legal { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, .12); font-size: .82rem; color: #9FB0D3; }
+.pie__legal p + p { margin-top: .4rem; }
+@media (min-width: 760px) {
+  .pie__grid { grid-template-columns: 1.5fr 1fr 1fr; }
+}
+
+/* ============ Boton flotante de WhatsApp ============ */
+.flotante {
+  position: fixed; z-index: 60;
+  right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  min-width: 60px; height: 60px; padding: 0 16px; border-radius: 999px;
+  background: var(--naranja); color: var(--marino);
+  box-shadow: 0 0 0 3px #fff, 0 12px 26px rgba(14, 26, 51, .35);
+  font-weight: 600; text-decoration: none;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.flotante:hover { transform: translateY(-2px); background: #FF9A1F; }
+.flotante .ico { width: 28px; height: 28px; }
+.flotante span { display: none; }
+@media (min-width: 640px) {
+  .flotante { padding: 0 22px 0 18px; }
+  .flotante span { display: inline; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+<!-- Iconos: se dibujan una vez aqui y se reutilizan en toda la pagina con <use href="#i-nombre"> -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"/><path d="M20.054 15.987H3.946"/></symbol>
+  <symbol id="i-rayo" viewBox="0 0 24 24"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></symbol>
+  <symbol id="i-disco" viewBox="0 0 24 24"><path d="M10 16h.01"/><path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><path d="M21.946 12.013H2.054"/><path d="M6 16h.01"/></symbol>
+  <symbol id="i-brillo" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+  <symbol id="i-birrete" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+  <symbol id="i-salvavidas" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="i-maletin" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-estetoscopio" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
+  <symbol id="i-reporte" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M8 18v-1"/><path d="M12 18v-6"/><path d="M16 18v-3"/></symbol>
+  <symbol id="i-llave" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+  <symbol id="i-insignia" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m16 9-5.5 5.5L8 12"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1"/><path d="M16 2v3"/><path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338"/><path d="M3 9h5.859"/><path d="M8 2v3"/><circle cx="16" cy="16" r="6"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><path d="M13 19a4 4 0 00-8 0"/><path d="M16 10h2"/><path d="M16 14h2"/><circle cx="9" cy="12" r="3"/><rect x="2" y="5" width="20" height="14" rx="2"/></symbol>
+  <symbol id="i-prohibido" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.929 4.929 19.07 19.071"/></symbol>
+  <symbol id="i-carpeta" viewBox="0 0 24 24"><rect width="8" height="5" x="14" y="17" rx="1"/><path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5"/><path d="M20 17v-2a2 2 0 1 0-4 0v2"/></symbol>
+  <symbol id="i-correo" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-cohete" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+  <symbol id="i-chispa" viewBox="0 0 24 24"><path d="M12 0c.8 7.5 4.5 11.2 12 12-7.5.8-11.2 4.5-12 12-.8-7.5-4.5-11.2-12-12 7.5-.8 11.2-4.5 12-12z"/></symbol>
+</svg>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="marca" href="#inicio">
+      <img src="img/Chuta_Icono_Perfil_128.webp" width="42" height="42" alt="">
+      <span class="marca__nombre">Chuta, Mi PC!</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#paquetes">Paquetes</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#por-que-chuta">Por qué Chuta</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="btn btn--principal btn--chico" href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC">
+        <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Escríbenos
+      </a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
+      <svg class="ico ico-abrir" aria-hidden="true"><use href="#i-menu"></use></svg>
+      <svg class="ico ico-cerrar" aria-hidden="true"><use href="#i-x"></use></svg>
+    </button>
+  </div>
+  <nav class="menu-movil" id="menu-movil" aria-label="Menú" hidden>
+    <a href="#paquetes">Paquetes y precios</a>
+    <a href="#como-trabajamos">Cómo trabajamos</a>
+    <a href="#por-que-chuta">Por qué Chuta</a>
+    <a href="#preguntas">Preguntas frecuentes</a>
+    <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC">
+      <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Escríbenos por WhatsApp
+    </a>
+  </nav>
+</header>
+
+<main id="contenido">
+
+  <!-- ============ 1. Inicio ============ -->
+  <section class="hero oscuro" id="inicio">
+    <svg class="chispa chispa--1" aria-hidden="true"><use href="#i-chispa"></use></svg>
+    <svg class="chispa chispa--2" aria-hidden="true"><use href="#i-chispa"></use></svg>
+    <svg class="chispa chispa--3" aria-hidden="true"><use href="#i-chispa"></use></svg>
+
+    <div class="contenedor hero__grid">
+      <picture class="hero__logo">
+        <source type="image/webp" srcset="img/Chuta_Logo_720.webp 720w, img/Chuta_Logo_1080.webp 1080w" sizes="(min-width: 900px) 480px, (min-width: 484px) 300px, 62vw">
+        <img src="img/Chuta_Logo_1080.png" width="1080" height="1080" alt="Logo de Chuta, Mi PC!: una laptop caricatura con sonrisa nerviosa, pulgar arriba y una llave inglesa. De lenta a volando." fetchpriority="high">
+      </picture>
+      <div class="hero__texto">
+        <p class="hero__lugar">Soporte técnico de PCs y laptops · Cuenca</p>
+        <h1><span>Tu PC no está vieja,</span> <span class="resalte">está descuidada.</span></h1>
+        <p class="hero__bajada">Antes de gastar en una nueva, déjanos revisarla. Te decimos qué tiene y la dejamos de lenta a volando, por soporte remoto o dejándonos tu equipo.</p>
+        <div class="hero__botones">
+          <a class="btn btn--principal" href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Escríbenos por WhatsApp
+          </a>
+          <a class="btn btn--borde-blanco" href="#paquetes">Ver paquetes y precios</a>
+        </div>
+        <ul class="hero__sellos">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Diagnóstico gratis</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Reporte antes y después</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Garantía de 7 días</li>
+        </ul>
+      </div>
+    </div>
+    <svg class="hero__curva" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V38c230 36 470 44 720 22S1210 4 1440 30v50z"/></svg>
+  </section>
+
+  <!-- ============ 2. Paquetes y precios ============ -->
+  <section class="seccion seccion--suave" id="paquetes">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta">Precios claros</span>
+        <h2>Paquetes y precios</h2>
+        <p>Sabes qué incluye y cuánto cuesta antes de que toquemos tu equipo. ¿No sabes cuál necesitas? Empieza por el diagnóstico: es gratis.</p>
+      </div>
+
+      <p class="lanzamiento">
+        <svg class="ico" aria-hidden="true"><use href="#i-cohete"></use></svg>
+        <span><strong>Precios de lanzamiento</strong> para nuestros primeros clientes. Después aplica el precio normal, que ves tachado en cada paquete.</span>
+      </p>
+
+      <div class="sintomas">
+        <p class="sintomas__titulo" id="sintomas-titulo">¿Qué le pasa a tu PC?</p>
+        <ul aria-labelledby="sintomas-titulo">
+          <li><a href="#chuta-express">Está lenta</a></li>
+          <li><a href="#disco-a-dieta">Se quedó sin espacio</a></li>
+          <li><a href="#chuta-sin-anuncios">Salen anuncios por todos lados</a></li>
+          <li><a href="#chuta-completo">La quiero como nueva</a></li>
+          <li><a href="#chuta-estudiante">Es para clases</a></li>
+          <li><a href="#chuta-rescate">No arranca o tiene virus</a></li>
+          <li><a href="#chuta-pro-remoto">Es de mi negocio</a></li>
+          <li><a href="#diagnostico-chuta">No sé qué tiene</a></li>
+        </ul>
+      </div>
+
+      <!-- Diagnostico Chuta (gratis) -->
+      <article class="diag oscuro" id="diagnostico-chuta">
+        <div class="diag__texto">
+          <span class="diag__sello">Empieza por aquí</span>
+          <h3>Diagnóstico Chuta</h3>
+          <p>Revisamos tu equipo con nuestra propia herramienta y te explicamos qué tiene y qué paquete necesita.</p>
+          <ul class="diag__revisa" aria-label="Qué revisamos">
+            <li>Disco</li>
+            <li>Batería</li>
+            <li>Memoria RAM</li>
+            <li>Errores</li>
+            <li>Drivers</li>
+            <li>Activación</li>
+            <li>Compatibilidad con Windows 11</li>
+          </ul>
+          <ul class="diag__meta">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-reloj"></use></svg>10 a 15 minutos</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-laptop"></use></svg>Remoto o en persona</li>
+          </ul>
+        </div>
+        <div class="diag__accion">
+          <p class="diag__gratis">Gratis</p>
+          <a class="btn btn--principal" href="#contacto" data-wa="Hola, quiero el Diagnóstico Chuta gratis">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero mi diagnóstico
+          </a>
+        </div>
+      </article>
+
+      <div class="paquetes">
+
+        <!-- Chuta Sin Anuncios -->
+        <article class="paquete" id="chuta-sin-anuncios">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-escudo"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Navegador sin anuncios</p>
+              <h3>Chuta Sin Anuncios</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$3</span>
+            <span class="precio__lado">Gratis con el Chuta Completo y el Chuta Estudiante</span>
+          </div>
+          <ul class="paquete__meta">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-reloj"></use></svg>10–15 min</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-laptop"></use></svg>Remoto</li>
+          </ul>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Bloqueador de anuncios instalado y configurado en tus navegadores</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Navegas sin anuncios y más seguro</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Revisión gratis durante el primer mes</li>
+          </ul>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero el Chuta Sin Anuncios">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero el Sin Anuncios
+          </a>
+        </article>
+
+        <!-- Chuta Express -->
+        <article class="paquete" id="chuta-express">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-rayo"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Optimización sin formatear</p>
+              <h3>Chuta Express</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$10</span>
+            <span class="precio__lado">
+              <span class="precio__sello">Precio de lanzamiento</span>
+              <span>Normal: <s>$12</s></span>
+            </span>
+          </div>
+          <ul class="paquete__meta">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-reloj"></use></svg>45–90 min</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-laptop"></use></svg>Remoto</li>
+          </ul>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Reporte antes y después</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Limpieza de archivos basura</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Programas de inicio innecesarios desactivados</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Programas que sobran desinstalados, con tu permiso</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Ajustes de rendimiento</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Actualizaciones al día</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Escaneo de virus</li>
+          </ul>
+          <p class="nota">Requisito: tu equipo enciende y tiene internet.</p>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero el Chuta Express">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero el Chuta Express
+          </a>
+        </article>
+
+        <!-- Disco a Dieta -->
+        <article class="paquete" id="disco-a-dieta">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-disco"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Recupera espacio sin formatear</p>
+              <h3>Disco a Dieta</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$12</span>
+            <span class="precio__lado">
+              <span class="precio__sello">Precio de lanzamiento</span>
+              <span>Normal: <s>$15</s></span>
+            </span>
+          </div>
+          <ul class="paquete__meta">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-reloj"></use></svg>1–2 horas</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-laptop"></use></svg>Remoto o en persona</li>
+          </ul>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Análisis visual de qué ocupa tu disco</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Limpieza profunda de Windows: actualizaciones viejas, temporales y cachés</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Desinstalación de lo que no usas</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Lista de archivos grandes para que tú decidas</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Reporte de GB recuperados</li>
+          </ul>
+          <p class="nota">Nunca borramos archivos personales sin tu autorización.</p>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero el Disco a Dieta">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero el Disco a Dieta
+          </a>
+        </article>
+
+        <!-- Chuta Completo -->
+        <article class="paquete paquete--destacado" id="chuta-completo">
+          <span class="paquete__cinta">Recomendado</span>
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-brillo"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Tu equipo como nuevo</p>
+              <h3>Chuta Completo</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$20</span>
+            <span class="precio__lado">
+              <span class="precio__sello">Precio de lanzamiento</span>
+              <span>Normal: <s>$25</s></span>
+            </span>
+          </div>
+          <ul class="paquete__meta">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-reloj"></use></svg>Entrega en 24–48 h</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-insignia"></use></svg>Garantía de 7 días</li>
+          </ul>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Diagnóstico inicial</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Respaldo de tus archivos (hasta 50 GB) y restauración al terminar</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Formateo e instalación limpia de Windows 10 u 11, con la licencia de tu equipo</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Drivers y actualizaciones al día</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Programas básicos y Office, con tu licencia o una alternativa gratuita</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Optimización Express y Chuta Sin Anuncios incluidos</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Inscripción al programa de actualizaciones extendidas (ESU) de Windows 10, si aplica</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Reporte de salida</li>
+          </ul>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero el Chuta Completo">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero el Chuta Completo
+          </a>
+        </article>
+
+        <!-- Chuta Estudiante -->
+        <article class="paquete" id="chuta-estudiante">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-birrete"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Lista para clases</p>
+              <h3>Chuta Estudiante</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$22</span>
+            <span class="precio__lado">
+              <span class="precio__sello">Precio de lanzamiento</span>
+              <span>Normal: <s>$28</s></span>
+            </span>
+          </div>
+          <p class="paquete__desc"><strong>Todo lo del Chuta Completo</strong>, más lo que necesitas para estudiar:</p>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Office con la cuenta de tu universidad o colegio (si te la dan) o una alternativa gratuita</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Zoom y Teams instalados</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Drive o OneDrive configurado</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>1 programa de tu carrera, gratuito o con tu licencia</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Mini guía de 10 minutos</li>
+          </ul>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero el Chuta Estudiante">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero el Chuta Estudiante
+          </a>
+        </article>
+
+        <!-- Chuta Rescate -->
+        <article class="paquete" id="chuta-rescate">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-salvavidas"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Para emergencias</p>
+              <h3>Chuta Rescate</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor"><small>Desde</small>$20</span>
+            <span class="precio__lado">
+              <span class="precio__sello">Precio de lanzamiento</span>
+              <span>Normal: <s>desde $25</s></span>
+            </span>
+          </div>
+          <p class="paquete__desc">Para pantallazos azules, Windows que no arranca, virus o lentitud extrema.</p>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Diagnóstico profundo</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Reparación de Windows sin formatear, cuando se puede</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Eliminación de malware</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Prueba de memoria RAM y disco</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Recuperación de archivos, si el disco está sano</li>
+          </ul>
+          <p class="nota">Se cotiza antes de empezar. Si no aceptas, no pagas.</p>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero cotizar el Chuta Rescate">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Cotizar mi Rescate
+          </a>
+        </article>
+
+        <!-- Chuta Pro Remoto -->
+        <article class="paquete" id="chuta-pro-remoto">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-maletin"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Para negocios</p>
+              <h3>Chuta Pro Remoto</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$30</span>
+            <span class="precio__lado">
+              <span class="precio__sello">Precio de lanzamiento</span>
+              <span>Normal: <s>$30 a $40</s> por caso</span>
+            </span>
+          </div>
+          <ul class="paquete__meta">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-reloj"></use></svg>Hasta 1 hora</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-laptop"></use></svg>Remoto</li>
+          </ul>
+          <p class="paquete__desc">Resolvemos por remoto los problemas puntuales de tu negocio:</p>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Correo y Outlook</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Impresora en red</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Office</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Configuraciones</li>
+          </ul>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero el Chuta Pro Remoto para mi negocio">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Quiero el Pro Remoto
+          </a>
+        </article>
+
+        <!-- Extras -->
+        <article class="paquete paquete--extras" id="extras">
+          <div class="paquete__cab">
+            <span class="paquete__icono"><svg class="ico" aria-hidden="true"><use href="#i-mas"></use></svg></span>
+            <div>
+              <p class="paquete__tipo">Servicios adicionales</p>
+              <h3>Extras</h3>
+            </div>
+          </div>
+          <div class="precio">
+            <span class="precio__valor">$5</span>
+            <span class="precio__lado">cada uno</span>
+          </div>
+          <p class="paquete__desc">Súmalos a tu paquete cuando necesites algo más.</p>
+          <ul class="lista">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Office con tu licencia</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Impresora o Wi-Fi</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Respaldo de más de 50 GB</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Programa adicional</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>Inscripción al ESU de Windows 10 por separado</li>
+          </ul>
+          <a class="btn btn--principal btn--bloque" href="#contacto" data-wa="Hola, quiero preguntar por un extra">
+            <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Preguntar por un extra
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. Como trabajamos ============ -->
+  <section class="seccion" id="como-trabajamos">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta">Paso a paso</span>
+        <h2>Cómo trabajamos</h2>
+        <p>Cinco pasos y ninguna sorpresa: siempre sabes qué le estamos haciendo a tu equipo.</p>
+      </div>
+      <ol class="pasos">
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">1</span>
+          <div>
+            <h3>Diagnóstico gratis</h3>
+            <p>Revisamos tu equipo en 10 a 15 minutos y te explicamos qué tiene y qué paquete necesita.</p>
+          </div>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">2</span>
+          <div>
+            <h3>Reporte de entrada</h3>
+            <p>Registramos cómo llega tu equipo, con datos reales, y le asignamos su ID (CHU-0001…).</p>
+          </div>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">3</span>
+          <div>
+            <h3>Trabajo</h3>
+            <p>Hacemos lo acordado, por remoto o con tu equipo. Nada se borra sin tu autorización.</p>
+          </div>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">4</span>
+          <div>
+            <h3>Reporte de salida</h3>
+            <p>Te mostramos el antes y el después con los datos de tu equipo, no con un «ya quedó».</p>
+          </div>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">5</span>
+          <div>
+            <h3>Garantía</h3>
+            <p>El trabajo de software tiene 7 días de garantía.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 4. Por que Chuta ============ -->
+  <section class="seccion seccion--marino oscuro" id="por-que-chuta">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta">Confianza</span>
+        <h2>¿Por qué Chuta?</h2>
+        <p>El humor está en el nombre. El trabajo va en serio.</p>
+      </div>
+      <ul class="razones">
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-estetoscopio"></use></svg></span>
+          <h3>Diagnóstico gratis</h3>
+          <p>Revisamos tu equipo y te explicamos qué tiene antes de hablar de precios.</p>
+        </li>
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-reporte"></use></svg></span>
+          <h3>Reporte antes y después</h3>
+          <p>Ves el cambio con datos reales de tu equipo, no solo con nuestra palabra.</p>
+        </li>
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-insignia"></use></svg></span>
+          <h3>Garantía de 7 días</h3>
+          <p>Respaldamos durante 7 días el trabajo de software que hacemos.</p>
+        </li>
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-carpeta"></use></svg></span>
+          <h3>Tus archivos, a salvo</h3>
+          <p>Respaldamos tus archivos y no borramos nada sin tu autorización.</p>
+        </li>
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-llave"></use></svg></span>
+          <h3>Solo licencias legales</h3>
+          <p>Usamos la licencia de tu equipo o la tuya. No hacemos «activaciones».</p>
+        </li>
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-calendario"></use></svg></span>
+          <h3>Windows 10 sigue con vida</h3>
+          <p>Puede seguir recibiendo actualizaciones de seguridad hasta octubre de 2027 con el programa ESU de Microsoft.</p>
+        </li>
+        <li class="razon">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-id"></use></svg></span>
+          <h3>Un ID para tu equipo</h3>
+          <p>Cada equipo recibe su código (CHU-0001…) y su historial.</p>
+        </li>
+        <li class="razon razon--no">
+          <span class="razon__icono"><svg class="ico" aria-hidden="true"><use href="#i-prohibido"></use></svg></span>
+          <h3>Lo que no hacemos</h3>
+          <p>Reparación de placas, cambio de pantallas ni recuperación de discos dañados. Preferimos decírtelo de frente.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 5. Preguntas frecuentes ============ -->
+  <section class="seccion seccion--suave" id="preguntas">
+    <div class="contenedor">
+      <div class="encabezado">
+        <span class="etiqueta">Dudas</span>
+        <h2>Preguntas frecuentes</h2>
+        <p>Las dudas más comunes, respondidas sin vueltas.</p>
+      </div>
+      <div class="faq">
+        <details class="faq__item">
+          <summary>¿De verdad el diagnóstico es gratis?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>Sí. En 10 a 15 minutos revisamos disco, batería, memoria RAM, errores, drivers, activación y compatibilidad con Windows 11, por remoto o en persona. Te explicamos qué tiene tu equipo y qué paquete le conviene, y tú decides si seguimos.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Tengo que llevar mi equipo a un local?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>No tenemos local. Varios servicios se hacen por soporte remoto, sin que salgas de casa. Para los que necesitan el equipo, como el Chuta Completo, coordinamos la entrega por WhatsApp, en Cuenca.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Cómo funciona el soporte remoto?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>Solo necesitas que tu equipo encienda y tenga internet. Coordinamos por WhatsApp, nos conectamos con tu autorización y hacemos el trabajo acordado.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Van a borrar mis archivos?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>No. Nada se borra sin tu autorización. Si tu equipo necesita formateo (Chuta Completo), primero respaldamos tus archivos y al terminar los restauramos. El paquete incluye hasta 50 GB de respaldo; si tienes más, es un extra de $5.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Hay que formatear para que mi PC deje de estar lenta?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>No siempre. El Chuta Express optimiza tu equipo y el Disco a Dieta recupera espacio, los dos sin formatear. En el diagnóstico vemos qué le conviene.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Qué licencias de Windows y Office usan?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>Solo licencias legales: la que ya tiene tu equipo o la tuya. Si no tienes Office, instalamos una alternativa gratuita. No hacemos «activaciones».</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Tengo Windows 10, ¿todavía sirve mi PC?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>Sí. Windows 10 puede seguir recibiendo actualizaciones de seguridad hasta octubre de 2027 con el programa ESU de Microsoft, y te ayudamos con la inscripción. En el diagnóstico también revisamos si tu equipo es compatible con Windows 11.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Qué cubre la garantía?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>El trabajo de software que realizamos, durante 7 días. Si en ese tiempo algo de lo que hicimos falla, nos escribes y lo revisamos.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Cuánto voy a pagar al final?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>Lo que ves publicado en cada paquete. El Chuta Rescate depende del caso, así que se cotiza antes de empezar: si no aceptas, no pagas. Los precios de lanzamiento son para nuestros primeros clientes; después aplica el precio normal.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>¿Qué trabajos no hacen?<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+          <div class="faq__resp"><p>No reparamos placas, no cambiamos pantallas y no recuperamos discos dañados. Si ese es tu caso, te lo decimos en el diagnóstico.</p></div>
+        </details>
+      </div>
+      <p class="faq__mas">¿No está tu pregunta? <a href="#contacto" data-wa="Hola, tengo una pregunta">Escríbenos por WhatsApp</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ Cierre ============ -->
+  <section class="cierre oscuro" id="contacto">
+    <div class="contenedor cierre__grid">
+      <img class="cierre__mascota" src="img/Chuta_Icono_Perfil_480.webp" width="480" height="480" alt="" loading="lazy">
+      <div>
+        <h2>¿Tu PC anda lenta? Cuéntanos qué le pasa.</h2>
+        <p>Empezamos por el diagnóstico gratis y te decimos qué necesita tu equipo.</p>
+        <a class="btn btn--principal" href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC">
+          <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>Escríbenos por WhatsApp
+        </a>
+        <p class="cierre__correo">O por correo: <a href="mailto:chutamipc.ec@gmail.com">chutamipc.ec@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 6. Pie ============ -->
+<footer class="pie oscuro">
+  <div class="contenedor">
+    <div class="pie__grid">
+      <div>
+        <a class="marca" href="#inicio">
+          <img src="img/Chuta_Icono_Perfil_128.webp" width="42" height="42" alt="" loading="lazy">
+          <span class="marca__nombre">Chuta, Mi PC!</span>
+        </a>
+        <p class="pie__lema"><strong>De lenta a volando.</strong>Soporte técnico de PCs y laptops, por remoto o dejando tu equipo.</p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <ul class="pie__lista">
+          <li><a href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg>WhatsApp</a></li>
+          <li><a href="mailto:chutamipc.ec@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-correo"></use></svg>chutamipc.ec@gmail.com</a></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-pin"></use></svg>Cuenca, Ecuador</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Redes</h3>
+        <ul class="pie__lista">
+          <li><a href="https://www.instagram.com/chutamipc.ec/" target="_blank" rel="noopener"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-instagram"></use></svg><span><span class="solo-lector">Instagram: </span>@chutamipc.ec</span></a></li>
+          <li><a href="https://www.tiktok.com/@chutamipc.ec" target="_blank" rel="noopener"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-tiktok"></use></svg><span><span class="solo-lector">TikTok: </span>@chutamipc.ec</span></a></li>
+          <li><a id="red-facebook"><svg class="ico ico--marca" aria-hidden="true"><use href="#i-facebook"></use></svg><span><span class="solo-lector">Facebook: </span>Chuta Mi PC</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <p>© <span id="anio">2026</span> Chuta, Mi PC! · Cuenca, Ecuador</p>
+      <p>Windows, Office, Outlook, OneDrive y Teams son marcas de Microsoft. Chuta, Mi PC! es un servicio independiente.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="flotante" href="#contacto" data-wa="Hola, quiero información sobre el soporte para mi PC" aria-label="Escríbenos por WhatsApp">
+  <svg class="ico ico--marca" aria-hidden="true"><use href="#i-whatsapp"></use></svg><span>WhatsApp</span>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============ CONFIGURACION ============
+     Numero de WhatsApp Business en formato internacional, sin "+", espacios ni guiones.
+     Ejemplo: "593991234567". Reemplaza solo el texto entre comillas. */
+  var WHATSAPP = "WHATSAPP_NUMERO";
+
+  /* Enlace de la pagina de Facebook (ejemplo: "https://www.facebook.com/tu-pagina").
+     Mientras este vacio, en el pie aparece el nombre de la pagina sin enlace. */
+  var FACEBOOK = "";
+  /* ======================================= */
+
+  /* Botones de WhatsApp: cada uno lleva su mensaje en el atributo data-wa */
+  var soloDigitos = WHATSAPP.replace(/\D/g, "");
+  var numero = soloDigitos || WHATSAPP;
+  if (!soloDigitos && window.console) {
+    console.warn("Chuta: falta configurar el numero de WhatsApp (variable WHATSAPP en index.html).");
+  }
+  var botones = document.querySelectorAll("[data-wa]");
+  for (var i = 0; i < botones.length; i++) {
+    var mensaje = botones[i].getAttribute("data-wa");
+    botones[i].href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+    botones[i].target = "_blank";
+    botones[i].rel = "noopener";
+  }
+
+  /* Facebook */
+  var facebook = document.getElementById("red-facebook");
+  if (facebook && FACEBOOK) {
+    facebook.href = FACEBOOK;
+    facebook.target = "_blank";
+    facebook.rel = "noopener";
+  }
+
+  /* Menu en celular */
+  var menuBtn = document.getElementById("menu-btn");
+  var menu = document.getElementById("menu-movil");
+  function cerrarMenu() {
+    menu.hidden = true;
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "Abrir menú");
+  }
+  menuBtn.addEventListener("click", function () {
+    if (menu.hidden) {
+      menu.hidden = false;
+      menuBtn.setAttribute("aria-expanded", "true");
+      menuBtn.setAttribute("aria-label", "Cerrar menú");
+    } else {
+      cerrarMenu();
+    }
+  });
+  menu.addEventListener("click", function (evento) {
+    if (evento.target.closest("a")) { cerrarMenu(); }
+  });
+  document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape" && !menu.hidden) { cerrarMenu(); menuBtn.focus(); }
+  });
+
+  /* Anio del pie */
+  document.getElementById("anio").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
