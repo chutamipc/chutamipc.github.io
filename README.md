@@ -18,7 +18,7 @@ Todo se edita en `index.html`.
 
 | Línea | Qué poner |
 |---|---|
-| `var WHATSAPP = "WHATSAPP_NUMERO";` | El número en formato internacional sin `+` (ejemplo: `593991234567`). Mientras no esté, los botones de WhatsApp llevan a la sección de contacto. |
+| `var WHATSAPP = "593962529610";` | El número en formato internacional sin `+`. Si se deja vacío, los botones de WhatsApp llevan a la sección de contacto. |
 | `var INSTAGRAM = "...";` | El enlace del perfil, o solo el usuario (`@usuario`). |
 | `var TIKTOK = "...";` | Igual que Instagram. |
 | `var FACEBOOK = "";` | El enlace de la página. Mientras esté vacío, Facebook no aparece en el pie. |
