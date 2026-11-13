@@ -10,4 +10,6 @@ Imágenes de las publicaciones de lanzamiento de Chuta, Mi PC! (1080 × 1350 px)
 - `banners/banner-whatsapp-cuadrado.jpg` y `banners/banner-whatsapp-historia.jpg`: banners de contacto con el código QR de WhatsApp, para publicaciones, historias y estados.
 - `banners/qr-whatsapp.png`: el código QR solo. Abre el chat de WhatsApp del negocio.
 
+- `videos/01-…` a `05-…`: videos verticales (1080 × 1920, con música original) para TikTok, Reels de Instagram y Reels de Facebook.
+
 Esta carpeta no forma parte de la página web.
