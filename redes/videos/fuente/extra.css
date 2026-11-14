@@ -1,0 +1,52 @@
+/* Piezas de escena que usa motor2.js */
+.globo{position:absolute;z-index:25;padding:26px 34px 16px;border-radius:44px;background:#fff;color:var(--mar);border:7px solid var(--mar);font:800 62px/1.06 "Baloo 2",sans-serif;text-align:center;box-shadow:0 12px 0 rgba(14,26,51,.25)}
+.globo::after{content:"";position:absolute;left:var(--cola,90px);bottom:-33px;width:54px;height:54px;background:#fff;border-right:7px solid var(--mar);border-bottom:7px solid var(--mar);border-bottom-right-radius:12px;transform:rotate(45deg) skew(10deg,10deg)}
+.globo.arriba::after{bottom:auto;top:-33px;border:0;border-left:7px solid var(--mar);border-top:7px solid var(--mar);border-top-left-radius:12px}
+.globo.n{background:var(--nar)}.globo.n::after{background:var(--nar)}
+.globo.grito{border-radius:26px;background:var(--am)}.globo.grito::after{background:var(--am)}
+.onda{position:absolute;z-index:59;width:200px;height:200px;border-radius:50%;border:16px solid #fff}
+.precio{position:absolute;left:100px;right:160px;z-index:15;padding:38px 30px 34px;border-radius:56px;background:#fff;border:9px solid var(--mar);box-shadow:0 24px 0 rgba(14,26,51,.35);text-align:center;color:var(--mar)}
+.precio__nom{font:800 84px/1 "Baloo 2",sans-serif}
+.precio__val{font:800 330px/.98 "Baloo 2",sans-serif;color:var(--nar);-webkit-text-stroke:12px var(--mar);paint-order:stroke fill;letter-spacing:-.02em}
+.precio__nota{font:600 40px/1.25 "Poppins",sans-serif;color:#46536E}
+.precio__nota s{color:#8792A8}
+.lista{position:absolute;z-index:16;display:flex;flex-direction:column;gap:20px}
+.etq{position:absolute;z-index:13;padding:16px 28px 10px;border-radius:18px;background:#fff;border:6px solid var(--mar);color:var(--mar);font:800 44px/1 "Baloo 2",sans-serif;white-space:nowrap;box-shadow:0 8px 0 rgba(14,26,51,.28)}
+.etq.r{background:var(--rojo);color:#fff}.etq.am{background:var(--am)}.etq.v{background:var(--verde);color:#fff}.etq.n{background:var(--nar)}.etq.g{background:#C9CED8}
+.signo{position:absolute;z-index:26;font:800 120px/1 "Baloo 2",sans-serif;-webkit-text-stroke:10px var(--mar);paint-order:stroke fill}
+.haz{position:absolute;z-index:18;height:16px;border-radius:8px;background:#7CFFB2;box-shadow:0 0 0 6px rgba(124,255,178,.35),0 0 60px 26px rgba(124,255,178,.55)}
+.num{left:0;right:60px;line-height:.9}
+.nota{position:absolute;z-index:22;left:60px;right:120px;text-align:center;font:500 30px/1.2 "Poppins",sans-serif;opacity:.85}
+.franja{position:absolute;left:-60px;right:-60px;z-index:19;padding:26px 0 18px;background:var(--mar);color:#fff;text-align:center;font:800 92px/1 "Baloo 2",sans-serif;box-shadow:0 0 0 8px #fff}
+.franja.n{background:var(--nar);color:var(--mar);box-shadow:0 0 0 8px var(--mar)}
+.franja.r{background:var(--rojo)}
+.cinta{position:absolute;left:0;right:0;z-index:5;height:150px;background:repeating-linear-gradient(90deg,#2B3550 0 60px,#3A4666 60px 120px);border-top:10px solid var(--mar);border-bottom:10px solid var(--mar)}
+.tapete{position:absolute;inset:0;z-index:40;background:#0E1A33}
+.luz{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 68%);z-index:2}
+.chip{font-size:50px;padding:20px 38px 18px}
+.globo{font-size:74px}
+.etq.gr{font-size:58px;padding:20px 34px 12px;border-width:7px}
+.sub b{font-weight:700}
+.sub.caja{left:110px;right:170px;padding:22px 26px 18px;border-radius:26px;background:var(--mar);color:#fff}
+.pct{font:800 60px/1 "Baloo 2",sans-serif;margin-top:14px}
+.tags{position:absolute;left:0;right:60px;display:flex;flex-direction:column;align-items:center;gap:24px;z-index:16}
+.tags .fila{display:flex;gap:22px;justify-content:center}
+.tags .etq{position:relative}
+.precio__val small{display:block;font:800 70px/1 "Baloo 2",sans-serif;color:var(--mar);-webkit-text-stroke:0;margin-bottom:-18px;letter-spacing:0}
+.item .ok.r{background:var(--rojo)}
+.lista.compacta{gap:14px}
+.lista.compacta .item{padding:10px 22px;font-size:42px;border-radius:22px;border-width:5px;box-shadow:0 8px 0 rgba(14,26,51,.25)}
+.lista.compacta .item .ok{width:60px;height:60px}.lista.compacta .item .ok svg{width:38px;height:38px}
+.reloj{position:absolute;left:0;right:60px;text-align:center;font:800 250px/1 "Baloo 2",sans-serif;color:var(--am);-webkit-text-stroke:14px var(--mar);paint-order:stroke fill;z-index:20;letter-spacing:.02em}
+.tarjeta{position:absolute;z-index:17;padding:34px 40px 26px;border-radius:44px;background:#fff;color:var(--mar);border:8px solid var(--mar);box-shadow:0 16px 0 rgba(14,26,51,.3);font:800 84px/1.08 "Baloo 2",sans-serif;text-align:center}
+.e.noche .suelo{background:rgba(255,255,255,.05);border-top-color:rgba(255,255,255,.12)}
+.e.alarma .suelo{background:rgba(0,0,0,.25);border-top-color:rgba(255,255,255,.2)}
+.vent.r .vent__barra{background:var(--rojo);color:#fff}
+.vent__cuerpo{font:600 44px/1.2 "Poppins",sans-serif}
+.anuncio{font-size:66px}
+.mosca{position:absolute;width:24px;height:24px;border-radius:50%;background:#0E1A33;z-index:15;box-shadow:-11px -9px 0 -4px rgba(255,255,255,.85),11px -9px 0 -4px rgba(255,255,255,.85)}
+.tx{text-wrap:balance}
+.item{font-size:52px}
+.lista.compacta .item{padding:10px 22px;font-size:50px}
+.lista.compacta .item .ok{width:64px;height:64px}
+.lista.compacta{gap:12px}

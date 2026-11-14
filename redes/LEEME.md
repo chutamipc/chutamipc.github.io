@@ -11,5 +11,7 @@ Imágenes de las publicaciones de lanzamiento de Chuta, Mi PC! (1080 × 1350 px)
 - `banners/qr-whatsapp.png`: el código QR solo. Abre el chat de WhatsApp del negocio.
 
 - `videos/01-…` a `05-…`: videos verticales (1080 × 1920, con música original) para TikTok, Reels de Instagram y Reels de Facebook.
+- `videos/06-…` en adelante: videos animados con la mascota (1080 × 1920, 12 a 18 segundos, música y efectos originales).
+- `videos/fuente/`: los guiones y el motor con que se generan los videos animados (HTML + GSAP, grabados cuadro a cuadro).
 
 Esta carpeta no forma parte de la página web.
