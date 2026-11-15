@@ -176,6 +176,10 @@ def fx_bip():
 def fx_fiu():
     x, t = barrido(700, 2100, 0.16, 1.0); y, t2 = barrido(2100, 500, 0.3, 0.7)
     return junta([(bordes(x, 0.01, 0.02), 0, 0.8), (bordes(y * (1 - t2 / 0.3), 0.01, 0.03), 0.2, 0.8)], 0.55)
+def fx_lluvia(dur=4.3):
+    t = tt(dur); n = filtro(ruido(len(t)), 1400, 9000); lento = filtro(ruido(len(t)), None, 3) ; lento = lento / (np.max(np.abs(lento)) + 1e-9)
+    env = np.minimum(t / 0.3, 1) * np.minimum((dur - t) / 0.5, 1)
+    return n * (0.75 + 0.25 * lento) * env
 # nombre: (funcion, ganancia base)
 FX = {"golpe": (fx_golpe, 0.5), "pop": (fx_pop, 0.32), "clic": (fx_clic, 0.24), "bien": (fx_bien, 0.2), "campana": (fx_campana, 0.3),
       "caja": (fx_caja, 0.24), "barrido": (fx_barrido, 0.16), "raya": (fx_raya, 0.24), "alarma": (fx_alarma, 0.4), "soplo": (fx_soplo, 0.26),
@@ -184,7 +188,7 @@ FX = {"golpe": (fx_golpe, 0.5), "pop": (fx_pop, 0.32), "clic": (fx_clic, 0.24), 
       "error": (fx_error, 0.3), "sirena": (fx_sirena, 0.2), "aspira": (fx_aspira, 0.26), "escaner": (fx_escaner, 0.14), "moneda": (fx_moneda, 0.2),
       "desinfla": (fx_desinfla, 0.24), "latido": (fx_latido, 0.6), "tecla": (fx_tecla, 0.3), "burbuja": (fx_burbuja, 0.26), "fanfarria": (fx_fanfarria, 0.3),
       "ronquido": (fx_ronquido, 0.3), "chispa": (fx_chispa, 0.22), "trueno": (fx_trueno, 0.4), "rebobina": (fx_rebobina, 0.2), "timbre": (fx_timbre, 0.26),
-      "bip": (fx_bip, 0.16), "fiu": (fx_fiu, 0.2)}
+      "bip": (fx_bip, 0.16), "fiu": (fx_fiu, 0.2), "lluvia": (fx_lluvia, 0.1)}
 
 PROGS = [
     [(48, (60, 64, 67, 72)), (43, (59, 62, 67, 71)), (45, (57, 60, 64, 69)), (41, (57, 60, 65, 69))],   # Do, Sol, La menor, Fa

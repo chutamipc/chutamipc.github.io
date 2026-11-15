@@ -14,7 +14,7 @@ doc = f'''<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>{nom
 {partes.get("html", "")}
 </div></div></div>
 {"".join(f'<script src="../lib/{l}"></script>' for l in libs)}
-<script src="../motor.js"></script><script src="../motor2.js"></script>
+<script src="../motor.js"></script><script src="../motor2.js"></script><script src="../motor3.js"></script>
 <script>
 function guion() {{
 {partes.get("guion", "")}

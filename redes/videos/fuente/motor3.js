@@ -41,7 +41,7 @@ function burbujas(sel, t0, t1, x0, x1, y, n = 24, o = {}) {
 // fila de teclas grandes: teclas(sel, id, ['Ctrl','Shift','T'], y) -> selectores de cada tecla
 function teclas(sel, id, lista, y) {
   const WIN = '<i class="win"><b></b><b></b><b></b><b></b></i>';
-  $(sel).insertAdjacentHTML('beforeend', `<div class="teclas" id="${id}" style="top:${y}px">${lista.map((k, i) => (i ? '<span class="mas">+</span>' : '') + `<span class="tecla" id="${id}${i}">${k === 'Win' ? WIN + 'Win' : k}</span>`).join('')}</div>`);
+  $(sel).insertAdjacentHTML('beforeend', `<div class="teclas k${lista.length}" id="${id}" style="top:${y}px">${lista.map((k, i) => (i ? '<span class="mas">+</span>' : '') + `<span class="tecla" id="${id}${i}">${k === 'Win' ? WIN + 'Win' : k}</span>`).join('')}</div>`);
   return lista.map((k, i) => `#${id}${i}`);
 }
 function pulsa(ks, t, o = {}) {
