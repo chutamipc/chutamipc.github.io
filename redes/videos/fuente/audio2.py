@@ -204,7 +204,7 @@ def poner(buf, x, t0, g=1.0):
     if i < 0: x = x[-i:]; i = 0
     n = min(len(x), len(buf) - i); buf[i:i + n] += g * x[:n]
 
-def componer(dur, cortes, sonidos, mus):
+def componer(dur, cortes, sonidos, mus, voz=None):
     n = int(dur * SR)
     ritmo, grave, armonia, efectos = (np.zeros(n) for _ in range(4))
     total = int(np.ceil(dur / 2 - 1e-6))
@@ -274,12 +274,23 @@ def componer(dur, cortes, sonidos, mus):
         if nombre not in FX: faltan.add(nombre); continue
         f, g0 = FX[nombre]; poner(efectos, f(), t0, g0 * g)
     if faltan: print("  SONIDOS SIN DEFINIR:", sorted(faltan))
+    vz = np.zeros(n)
+    if voz:                                          # narracion: se suma al centro y la musica se agacha mientras habla
+        with wave.open(voz["wav"]) as w: v = np.frombuffer(w.readframes(w.getnframes()), dtype="<i2").astype(np.float64) / 32768
+        v = v[:n] if len(v) >= n else np.concatenate([v, np.zeros(n - len(v))])
+        vz = filtro(v, 75, None, 2)
+        env = np.ones(n)
+        for a, b in voz["frases"]:
+            i0, i1 = max(0, int((a - 0.08) * SR)), min(n, int((b + 0.14) * SR)); env[i0:i1] = 0.0
+        k = int(0.1 * SR); suave = np.convolve(env, np.ones(k) / k, mode="same")
+        agacha = 0.3 + 0.7 * suave
+        ritmo *= agacha; grave *= agacha; armonia *= agacha; efectos *= (0.7 + 0.3 * suave)
     tr = tt(0.9); ri = filtro(ruido(len(tr)) * np.exp(-tr / 0.2), 350, 6000); ri /= np.sqrt(np.sum(ri ** 2))
     def reverb(x):
         m = len(x) + len(ri) - 1; return np.fft.irfft(np.fft.rfft(x, m) * np.fft.rfft(ri, m), m)[:len(x)]
     humedo = reverb(armonia + 0.5 * efectos)
     retardo = int(0.011 * SR); arm_d = np.concatenate([np.zeros(retardo), armonia[:-retardo]])
-    centro = 0.85 * ritmo + grave + 1.25 * efectos
+    centro = 0.85 * ritmo + grave + 1.25 * efectos + 3.2 * vz
     izq = centro + 0.95 * armonia + 0.16 * humedo
     der = centro + 0.95 * arm_d + 0.16 * np.roll(humedo, 173)
     st = np.stack([izq, der], axis=1)
@@ -289,7 +300,7 @@ def componer(dur, cortes, sonidos, mus):
 
 if __name__ == "__main__":
     g = json.load(open(sys.argv[1])); salida = sys.argv[2]
-    st = componer(g["dur"], g.get("cortes", []), g.get("sonidos", []), g.get("musica") or {})
+    st = componer(g["dur"], g.get("cortes", []), g.get("sonidos", []), g.get("musica") or {}, g.get("voz"))
     with wave.open(salida, "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((st * 32767).astype("<i2").tobytes())
     rms = np.sqrt(np.mean(st ** 2))

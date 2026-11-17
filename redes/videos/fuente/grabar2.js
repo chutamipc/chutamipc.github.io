@@ -13,7 +13,7 @@ const path = require('path'); const fs = require('fs');
   page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') errores.push(m.type() + ': ' + m.text()); });
   await page.goto('file://' + path.resolve(html), { waitUntil: 'load' });
   await page.waitForFunction(() => window.__listo === true, null, { timeout: 30000 });
-  const info = await page.evaluate(() => ({ dur: window.__dur, sonidos: window.__sonidos, cortes: window.__cortes, musica: window.__musica || null }));
+  const info = await page.evaluate(() => ({ dur: window.__dur, sonidos: window.__sonidos, cortes: window.__cortes, musica: window.__musica || null, voz: window.__voz || null }));
   const dur = info.dur, total = Math.round(dur * fps);
   const nombre = path.basename(html, '.html');
   fs.writeFileSync(path.join(path.dirname(path.resolve(html)), nombre + '.json'), JSON.stringify(info));
